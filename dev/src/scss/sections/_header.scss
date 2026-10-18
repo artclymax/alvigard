@@ -1,0 +1,57 @@
+@use "../tools" as *;
+
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding-block: adapt(43, 10, $tablet);
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: adapt(64, 20, $tablet);
+		@include media($tablet) {
+			gap: 0px;
+		}
+	}
+
+	&__logo {
+		margin-right: auto;
+	}
+
+	&__menu {
+	}
+
+	&__phone-btn {
+	}
+
+	&__burger-btn {
+	}
+}
+
+.header-menu-top {
+	@include reset-list;
+	display: flex;
+	align-items: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 20px;
+	font-size: 16px;
+
+	.icon {
+		--width: 24px;
+		gap: 20px;
+	}
+	&__phone {
+	}
+
+	&__time {
+	}
+
+	&__address {
+		font-style: normal;
+		max-width: 260px;
+	}
+}

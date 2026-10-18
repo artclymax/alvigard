@@ -1,0 +1,115 @@
+@use "../tools" as *;
+
+.reviews {
+	padding-top: calc(var(--section-padding-05) + 165px);
+	@include media($mobile) {
+		padding-top: calc(var(--section-padding-05) + 80px);
+	}
+	&__container {
+	}
+
+	&__slider-wrapper {
+		width: 100%;
+		position: relative;
+	}
+
+	&__btn-box {
+	}
+}
+.container {
+}
+.swiper {
+}
+.reviews-swiper {
+	&__wrapper {
+	}
+
+	&__btn {
+		@include media($mobile, min) {
+			position: absolute;
+			top: 45%;
+			z-index: 2;
+		}
+	}
+
+	&__btn-prev {
+		@include media($mobile, min) {
+			left: -22px;
+		}
+	}
+
+	&__btn-next {
+		@include media($mobile, min) {
+			right: -22px;
+		}
+	}
+}
+
+.reviews-slide {
+	&__wrapper {
+		box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.16);
+		background: var(--color-light);
+		border: 1px solid #e8dfd4;
+		border-radius: 12px;
+		padding: 10px;
+		color: var(--color-dark);
+		@include flex-column;
+		gap: adapt(20, 10, $tablet);
+	}
+
+	&__image {
+		height: 180px;
+		border-radius: 6px;
+		overflow: hidden;
+	}
+
+	&__content {
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: adapt(20, 10, $tablet);
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__title {
+		@include media($mobile) {
+			@include title-4;
+		}
+	}
+
+	&__rating {
+		display: flex;
+		align-items: center;
+	}
+
+	&__city {
+		@include text-caption;
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 10, $tablet);
+		}
+		@include media($mobile) {
+			@include text-s;
+		}
+	}
+
+	&__descr {
+		font-size: 16px;
+	}
+}
+.icon-star {
+	display: flex;
+	@include square(20px);
+	@include bgimg(url("../../../public/images/icons/rating.svg"));
+}
+.swiper-btn {
+	&__prev {
+	}
+
+	&__next {
+	}
+}

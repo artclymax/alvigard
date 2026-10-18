@@ -1,0 +1,113 @@
+@use "../tools" as *;
+
+.catalog {
+	padding-block: var(--section-padding) var(--section-padding-05);
+
+	&__container {
+	}
+
+	&__list {
+		@include reset-list;
+
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		gap: 20px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+
+	&__item {
+		@for $i from 1 through 8 {
+			&:nth-child(8n + #{$i}) {
+				@if $i == 1 {
+					grid-column: span 3;
+				} @else if $i == 2 {
+					grid-column: span 4;
+				} @else if $i == 3 {
+					grid-column: span 3;
+				} @else if $i == 4 {
+					grid-column: span 2;
+				} @else if $i == 5 {
+					grid-column: span 2;
+				} @else if $i == 6 {
+					grid-column: span 3;
+
+					@include media($tablet) {
+						grid-column: span 2;
+					}
+				} @else if $i == 7 {
+					grid-column: span 1;
+
+					@include media($tablet) {
+						grid-column: span 2;
+					}
+				} @else if $i == 8 {
+					grid-column: span 3;
+				}
+
+				@include media($mobile) {
+					grid-column: span 1;
+				}
+			}
+		}
+	}
+
+	&__btn {
+		max-width: 372px;
+		display: block;
+		margin: 0 auto;
+
+		@include media($mobile) {
+			max-width: 100%;
+		}
+	}
+}
+
+.catalog-item {
+	&__link {
+		position: relative;
+		color: var(--color-primary-text);
+
+		
+
+		@include hover {
+			.catalog-item__image img {
+				transform: scale(1.1);
+			}
+		}
+	}
+
+	&__image {
+		height: adapt(223, 154);
+		border-radius: 6px;
+		overflow: hidden;
+
+		img {
+			transition: all 0.3s;
+		}
+	}
+
+	&__title {
+		@include reset;
+
+		position: absolute;
+		left: adapt(20, 10);
+		bottom: adapt(20, 10);
+
+		padding-right: 10px;
+		font-weight: 600;
+		font-size: 16px;
+
+		@include media($mobile) {
+			@include title-4;
+		}
+	}
+}

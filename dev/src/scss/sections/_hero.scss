@@ -1,0 +1,140 @@
+@use "../tools" as *;
+
+.hero {
+	--hero-top: calc(var(--header-height) + 30px);
+	position: relative;
+
+	padding-top: var(--hero-top);
+	padding-bottom: 135px;
+
+	@include media($mobile) {
+		padding-bottom: 0;
+		--object-pos: top;
+	
+	}
+
+	&__container {
+		min-height: calc(100dvh - var(--hero-top) - 135px);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		@include media($mobile) {
+			min-height: calc(100dvh - var(--hero-top));
+			justify-content: flex-start;
+		}
+	}
+
+	&__body {
+		position: relative;
+		z-index: 2;
+		max-width: 692px;
+		width: 100%;
+
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+
+		@include media($mobile) {
+			max-width: initial;
+			gap: 14px;
+			flex-grow: 1;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -38px;
+			bottom: -38px;
+			left: -74px;
+			right: -74px;
+			background: var(--color-dark);
+			filter: blur(100px);
+
+			@include media($mobile) {
+				display: none;
+			}
+		}
+	}
+
+	&__header {
+		position: relative;
+		z-index: 2;
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 10);
+		}
+	}
+
+	&__descr {
+		font-weight: 500;
+		font-size: adapt(20, 16);
+
+		@include media($mobile) {
+			font-weight: 400;
+		}
+	}
+
+	&__btn-box {
+		display: flex;
+		align-items: center;
+		gap: 8px 20px;
+		flex-wrap: wrap;
+
+		@include media($mobile) {
+			//margin-top: auto;
+			margin-top: 280px;
+		}
+	}
+
+	&__btn {
+	}
+
+	&__bg-box {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__bg-big {
+	}
+
+	&__bg-small {
+	}
+}
+
+.hero-swiper {
+	margin: 0;
+
+	&__wrapper {
+	}
+}
+
+.hero-slide {
+	width: auto !important;
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__icon {
+		@include square(adapt(44, 32));
+
+		img {
+			display: block;
+		}
+	}
+
+	&__text {
+		font-size: adapt(16, 14);
+	}
+}

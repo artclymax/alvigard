@@ -1,0 +1,111 @@
+@use "../tools" as *;
+
+.projects {
+	padding-bottom: var(--section-padding);
+
+	&__container {
+		@include flex-column;
+		align-items: center;
+	}
+
+	&__slider-wrapper {
+		width: 100%;
+		position: relative;
+	}
+
+	&__btn-box {
+	}
+
+	&__btn {
+		max-width: initial;
+		width: initial;
+		margin-top: adapt(60, 40);
+	}
+}
+
+.projects-swiper {
+	&__wrapper {
+	}
+
+	&__btn {
+		@include media($mobile, min) {
+			position: absolute;
+			top: 45%;
+			z-index: 2;
+		}
+	}
+
+	&__btn-prev {
+		@include media($mobile, min) {
+			left: -22px;
+		}
+	}
+
+	&__btn-next {
+		@include media($mobile, min) {
+			right: -22px;
+		}
+	}
+}
+
+.projects-slide {
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr 0.5fr 0.5fr;
+		gap: adapt(20, 10, $tablet) adapt(40, 10, $tablet);
+	}
+
+	&__item {
+		--overlay-opacity: 0.2;
+
+		text-decoration: none;
+		color: inherit;
+		position: relative;
+		min-height: 247px;
+		@include flex-column;
+		justify-content: flex-end;
+		border-radius: 6px;
+		overflow: hidden;
+
+		&:first-child {
+			grid-row: span 2;
+		}
+
+		@include hover {
+			--overlay-opacity: 0;
+			img {
+				transform: scale(1.05);
+			}
+		}
+
+		@include media($mobile) {
+			min-height: 504px;
+		}
+	}
+
+	&__image {
+		@include overlay(linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), var(--overlay-opacity)) {
+			transition: all 0.3s;
+		}
+
+		img {
+			transition: all 0.3s;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 10px;
+		background: rgba(#18181a, 0.4);
+		padding: 20px adapt(20, 10);
+	}
+
+	&__title {
+		@include reset;
+		@include text-l;
+	}
+
+	&__descr {
+		@include text-s;
+	}
+}

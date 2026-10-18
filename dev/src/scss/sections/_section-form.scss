@@ -1,0 +1,63 @@
+@use "../tools" as *;
+
+.section-form {
+	padding-block: var(--section-padding-05);
+	position: relative;
+	margin-bottom: var(--section-padding);
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 40px adapt(40, 20, $tablet);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+	.section-header {
+		text-align: left;
+	}
+	&__content {
+		@include flex-column;
+		height: 100%;
+		justify-content: space-between;
+	}
+
+	&__descr {
+		ul {
+			@include reset-list;
+			@include flex-column;
+			gap: adapt(20, 10, $tablet);
+
+			li {
+				@include title-5;
+				display: flex;
+				align-items: center;
+				gap: adapt(40, 10, $tablet);
+
+				@include media($mobile) {
+					@include text-l;
+				}
+
+				&::before {
+					content: "";
+					@include square(adapt(41, 32, $tablet));
+					@include bgimg(url("../../../public/images/icons/descr-check.svg"));
+				}
+			}
+		}
+	}
+
+	&__form {
+		border: 1px solid rgba(255, 255, 255, 0);
+		border-radius: 16px;
+		backdrop-filter: blur(1px);
+		box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0);
+		background: rgba(20, 20, 20, 0.6);
+		padding: adapt(64, 10, $mobile) adapt(68, 10, $mobile);
+	}
+
+	&__image {
+	}
+}

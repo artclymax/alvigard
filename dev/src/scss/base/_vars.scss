@@ -1,0 +1,61 @@
+@use "../tools" as *;
+
+:root {
+	--color-0: rgba(0, 0, 0, 0);
+	--color-black: #000;
+	--color-white: #fff;
+	--color-light: #fcfafa;
+
+	// Primary Colors
+	--color-primary: #f28c28;
+	--color-primary-hover: #e57a1f;
+	--color-primary-active: #c96518;
+
+	// Accent
+	--color-light-accent: #ffb347; // light accent
+
+	// Backgrounds (из дизайн-токенов)
+	--color-bg-main: #0f0f0f; // background main //* (+)
+	--color-secondary-bg: #18181a; // secondary bg
+	--color-card-bg: #1f1f22; // card bg
+	--color-border-subtle: #2a2a2e; // border subtle
+
+	// Text (из дизайн-токенов)
+	--color-primary-text: #fff; // primary text //* (+)
+	--color-secondary-text: #5e6b78; // secondary text
+	--color-muted-text: #9a9a9a; // muted text //* (+)
+
+	// Decorative (из дизайн-токенов)
+	--color-warm-highlight: #ffd9a0; // warm highlight
+	--color-wood-tone: #8b5e3c; // wood tone
+	--color-deep-warm-shadow: #2b1e14; // deep warm shadow
+
+	// без переменной
+	--color-dark: #131011; //* (+)
+
+	// Gradients
+	--color-gradient-btn: linear-gradient(90deg, #ff6a00 0%, #ffc04d 50%, #f28a1a 100%); //* (+)
+
+	// transluscent (полупрозрачные)
+	--color-stroke-btn: rgba(0, 0, 0, 0.1); //* (+)
+
+	// Layouts
+	--header-height: #{adapt(108, 59)};
+	--section-padding: #{adapt(120, 60)};
+	--section-padding-05: #{adapt(60, 30)};
+
+	--container-width: 1200px;
+	--container-padding: 10px; //! даже если контейнер на весь экран, отступы оставь а ширину сделай на 100%
+
+	// Fonts
+	--font-size-html: 100%; // 1rem = 1px ===> calc(1 / 16 * 100%)
+	--font-size: #{adapt(18, 15)};
+	--font-family-main: "Onest-VF", "Onest", sans-serif;
+	--font-family-title: "CormorantGaramond-VF", "CormorantGaramond", serif;
+
+	--line-height: 130%;
+	--letter-spacing: auto;
+
+	// Shadows (из дизайн-токенов)
+	--shadow-card: 0px 2px 12px 0px #ff6a001a;
+}

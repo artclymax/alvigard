@@ -1,0 +1,103 @@
+@use "../tools" as *;
+
+.form-select {
+	display: none;
+}
+.custom-select {
+	position: relative;
+
+	&__select-field {
+		@include reset;
+		text-align: left;
+		border: none;
+		background: var(--color-0);
+		width: 100%;
+
+		//================
+		border: 1px solid var(--color-gray);
+		border-radius: 8px;
+		padding: adapt(24, 16) 24px;
+		background: var(--color-gray-2);
+		@include text-caption;
+		
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		justify-content: space-between;
+
+		&::after {
+			content: '';
+			flex-shrink: 0;
+			@include square(16px);
+			border-radius: 50%;
+			background-color: var(--color-dark-btn-05);
+			@include bgimg(url('../../../public/images/icons/plus.svg'), 10px);
+			transition: all 0.3s;
+
+			.custom-select-active & {
+				transform: rotate(45deg);
+			}
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		border: 1px solid var(--color-gray);
+		border-radius: 8px;
+		background: var(--color-gray-2);
+
+		position: absolute;
+		z-index: 5;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		max-height: 280px;
+		overflow: auto;
+		transform: translateY(80%);
+		transition: all 0.3s;
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+
+		.custom-select-active & {
+			transform: translateY(100%);
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			border-bottom: 1px solid var(--color-gray);
+		}
+	}
+
+	&__btn {
+		@include reset;
+		text-align: left;
+		border: none;
+		background: var(--color-0);
+		width: 100%;
+		//================
+		@include text-caption;
+		padding: adapt(24, 16) 24px;
+		transition: all 0.3s;
+
+		&.custom-select-active {
+			background: var(--color-dark-btn);
+			color: var(--color-white);
+
+			@include hover {
+				background: var(--color-dark-btn);
+			}
+		}
+
+		@include hover {
+			background: var(--color-gray);
+		}
+	}
+}
+.custom-select-active {
+}

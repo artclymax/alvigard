@@ -1,0 +1,131 @@
+@use "../tools" as *;
+
+//.swiper-wrapper {
+//	align-items: stretch !important;
+//}
+
+.swiper-slide {
+	box-sizing: border-box;
+	display: flex !important;
+	height: auto !important; /* важно */
+}
+
+.swiper-slide > * {
+	flex: 1 !important;
+}
+
+.swiper-btn {
+	--arrow-icon: url("../../../public/images/icons/swiper-arrow.svg");
+	@include reset;
+	background: var(--color-0);
+	border: none;
+	color: var(--color-main-bg);
+	@include square(44px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s;
+	//border-radius: 4px;
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		@include square(44px);
+		@include bgimg(var(--arrow-icon));
+		z-index: 1;
+		transition: all 0.3s;
+	}
+	//svg {
+	//	position: relative;
+	//	z-index: 2;
+	//	transition: all 0.3s;
+	//}
+
+	&.swiper-button-disabled {
+		//background: var(--color-gray);
+		//color: var(--color-gray-dark);
+	}
+
+	&__prev {
+		@include hover {
+			transform: translateX(-4px);
+		}
+	}
+
+	&__next {
+		--arrow-icon: url("../../../public/images/icons/swiper-arrow-next.svg");
+
+		@include hover {
+			transform: translateX(4px);
+		}
+	}
+}
+.swiper-btn-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	@include media($mobile) {
+		margin-top: 20px;
+	}
+}
+.swiper-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	position: static !important;
+	--swiper-pagination-bullet-horizontal-gap: 0;
+	--swiper-pagination-color: transparent;
+	--swiper-pagination-bullet-inactive-color: transparent;
+	--swiper-pagination-bullet-inactive-opacity: 1;
+	--swiper-pagination-bullet-height: 9px;
+	--swiper-pagination-bullet-width: 9px;
+
+	--swiper-pagination-bottom: 0;
+	--swiper-pagination-top: auto;
+
+	.swiper-pagination-bullet {
+		transition: all 0.3s;
+		flex-shrink: 0;
+		//background: var(--color-brown);
+		position: relative;
+		opacity: 0.5;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: var(--accent-gradient);
+			border-radius: 50%;
+			opacity: 0;
+			transition: all 0.3s;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			opacity: 1;
+			transition: all 0.3s;
+			border: 1px solid var(--main-text);
+		}
+	}
+	.swiper-pagination-bullet-active {
+		opacity: 1;
+
+		&::after {
+			opacity: 1;
+		}
+		&::before {
+			opacity: 0;
+		}
+	}
+}

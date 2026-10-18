@@ -1,0 +1,79 @@
+@use "@/scss/tools" as *;
+
+.woocommerce-pagination .page-numbers,
+.pagination-page {
+	@include reset;
+	list-style-type: none;
+	display: flex;
+	overflow: auto;
+	gap: 8px;
+	justify-content: center;
+	//margin-top: adapt(40, 20);
+
+	.page-numbers {
+		color: inherit;
+		text-decoration: none;
+		//background: var(--color-white);
+		@include square(40px);
+		//padding: 10px 14px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 8px;
+		transition: all 0.3s;
+		min-width: 35px;
+		font-size: 14px;
+		font-weight: 700;
+		&:not(.dots) {
+			@include hover {
+				//background: var(--color-accent);
+				//border-color: var(--color-accent);
+				//color: var(--color-blue);
+				color: var(--color-white);
+
+				background: var(--color-dark-blue);
+			}
+		}
+	}
+	.current {
+		background: var(--color-blue);
+		color: var(--color-white);
+		transition: all 0.3s;
+	}
+	.dots {
+	}
+	.next,
+	.prev {
+		border: 0;
+		color: var(--color-gray);
+		background: transparent;
+		padding: 10px 4px;
+		svg {
+			width: 100%;
+			height: 100%;
+			transition: all 0.3s;
+		}
+		@include hover {
+			//background: transparent !important;
+			//border-color: transparent !important;
+			//color: var(--color-accent-dark) !important;
+		}
+	}
+	.next {
+		@include hover {
+			svg {
+				transform: translateX(4px);
+			}
+		}
+	}
+	.prev {
+		@include hover {
+			svg {
+				transform: translateX(-4px);
+			}
+		}
+	}
+}
+.pagination-arrow {
+	display: none;
+}

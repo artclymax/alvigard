@@ -1,0 +1,143 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "constants" as *;
+
+//* (+)
+@mixin title-1 {
+	@include reset;
+	font-family: var(--font-family-title);
+	font-weight: 600;
+	font-size: adapt(64, 36);
+	letter-spacing: -0.5%;
+	line-height: 120%;
+}
+@mixin title-4 {
+	@include reset;
+	font-family: var(--font-family-title);
+	font-weight: 600;
+	font-size: adapt(24, 20);
+	line-height: 120%;
+
+	//@include media($mobile) {
+	//	font-weight: 400;
+	//}
+}
+@mixin title-5 {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 600;
+	font-size: 20px;
+	line-height: adapt(24, 24);
+	line-height: 120%;
+}
+@mixin text-l {
+	font-family: var(--font-family-main);
+	font-weight: 400;
+	font-size: adapt(18, 16);
+}
+@mixin text-s {
+	font-family: var(--font-family-main);
+	font-weight: 400;
+	font-size: adapt(14, 12);
+}
+@mixin text-caption {
+	font-family: var(--font-family-main);
+	font-weight: 500;
+	font-size: 12px;
+}
+
+//!=====================
+
+@mixin title-2 {
+	@include reset;
+	font-family: var(--font-family-title);
+	font-weight: 600;
+	font-size: adapt(44, 30);
+}
+
+@mixin title-3 {
+	@include reset;
+	font-family: var(--font-family-title);
+	font-weight: 500;
+	font-size: adapt(32, 24);
+}
+
+@mixin text-m {
+	font-family: var(--font-family-main);
+	font-weight: 400;
+	font-size: adapt(16, 15);
+	line-height: adapt(19.2, 18);
+	letter-spacing: 0;
+}
+
+@mixin text-overline {
+	font-family: var(--font-family-main);
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 14.4px;
+	letter-spacing: 0.036px;
+}
+
+
+@mixin text-button {
+	font-family: var(--font-family-main);
+	font-weight: 600;
+	font-size: 16px;
+	letter-spacing: 0.2%;
+	text-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.15);
+}
+
+@mixin text-button-base {
+	font-family: var(--font-family-main);
+	font-weight: 600;
+	font-size: adapt(15, 15);
+	line-height: adapt(18, 18);
+	letter-spacing: adapt(0.03, 0.03);
+}
+
+
+@mixin menu-navigation {
+	font-family: var(--font-family-main);
+	font-weight: 500;
+	font-size: adapt(15, 16);
+	line-height: adapt(18, 19.2);
+	letter-spacing: 0;
+}
+
+
+@mixin helper-text {
+	font-family: var(--font-family-main);
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14.4px;
+	letter-spacing: 0;
+}
+
+@mixin caps-label {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 120%;
+	letter-spacing: 0.6px;
+	text-transform: uppercase;
+}
+
+
+@mixin p1 {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 500;
+	font-size: adapt(18, 16);
+	line-height: adapt(21.6, 19.2);
+}
+
+@mixin caption-2 {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 700;
+	font-size: adapt(12, 10);
+	line-height: 120%;
+	letter-spacing: 0.6px;
+	text-transform: uppercase;
+}

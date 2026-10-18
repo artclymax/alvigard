@@ -1,0 +1,21 @@
+@use "../tools" as *;
+
+.section-header {
+	color: var(--color-primary-text);
+	text-align: center;
+
+	&:not(:last-child) {
+		margin-bottom: adapt(60, 40);
+	}
+
+	&__title {
+		text-wrap: balance;
+
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 10);
+		}
+	}
+
+	&__descr {
+	}
+}

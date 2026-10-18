@@ -1,0 +1,136 @@
+@use "../tools" as *;
+@use "../components/btn" as *;
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100dvh;
+	z-index: 1000;
+	background: rgba(#fff, 0.6);
+	backdrop-filter: blur(15px); //50
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 10px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.35s ease;
+
+	.admin-bar & {
+		padding-top: calc(var(--wp-admin--admin-bar--height) + 10px);
+		//top: var(--wp-admin-bar-height);
+		//height: calc(100dvh - var(--wp-admin-bar-height));
+	}
+	&.active-modal {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	&__box {
+		background-color: var(--color-white);
+		background-position: center center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		padding: 20px 10px;
+		overflow: auto;
+		//border-radius: 12px;
+
+		transform: scale(0.8);
+		opacity: 0;
+
+		transition:
+			transform 0.35s cubic-bezier(0.17, 0.67, 0.55, 1.39),
+			opacity 0.3s ease;
+
+		.modal.active-modal & {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	&__close-btn {
+	}
+}
+.modal-close-btn {
+	@include reset;
+	background: transparent;
+	color: var(--color-accent);
+	border: none;
+	padding: 0px;
+	position: absolute;
+	top: adapt(18, 6, $mobile);
+	right: adapt(18, 10, $mobile);
+	transition: all 0.3s;
+	@include square(44px);
+
+	svg {
+		width: 100%;
+		height: 100%;
+		transition: all 0.3s;
+	}
+
+	@include hover {
+		opacity: 0.8;
+		svg {
+			transform: rotate(90deg);
+		}
+	}
+}
+.modal {
+	&__box {
+		background-color: var(--color-white);
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		max-width: 590px;
+		width: 100%;
+		padding: adapt(40, 10, $mobile);
+		border-radius: 6px;
+		box-shadow:
+			0 4px 6px -4px rgba(0, 0, 0, 0.1),
+			0 10px 15px -3px rgba(0, 0, 0, 0.1);
+		@include overlay(#fff, 0.2) {
+			z-index: -1;
+		}
+		@include media($mobile) {
+			max-width: 420px;
+		}
+
+		.modal-close-btn {
+			@include square(40px);
+			padding: 8px;
+			@include media($mobile) {
+				position: static;
+				margin-left: auto;
+				display: block;
+			}
+		}
+	}
+	&__title {
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+			padding-inline: 10px;
+		}
+		@include media($mobile) {
+			//margin-top: 44px;
+		}
+	}
+	&__body {
+	}
+	&__descr-box {
+		opacity: 0.4;
+		@include text-caption;
+		text-transform: uppercase;
+
+		&:not(:first-child) {
+			margin-bottom: adapt(40, 20);
+		}
+	}
+	&__form {
+	}
+}

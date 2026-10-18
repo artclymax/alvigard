@@ -1,0 +1,79 @@
+@use "../tools" as *;
+
+.hero-404 {
+	--padding-top: calc(var(--header-height) + 80px);
+	min-height: calc(100dvh - var(--header-height));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--section-padding) 0;
+
+	&__container {
+		@include flex-column;
+		align-items: center;
+		text-align: center;
+		gap: adapt(20, 10);
+		padding-top: adapt(80, 10);
+	}
+
+	&__wrapper {
+		@include flex-column;
+		//max-width: 960px;
+		align-items: center;
+		text-align: center;
+		gap: 20px;
+		padding-top: 70px;
+	}
+
+	&__title {
+		@include media($mobile) {
+			@include title-3;
+		}
+	}
+
+	&__descr {
+		@include media($mobile) {
+			@include text-s;
+		}
+	}
+
+	&__btn {
+	}
+
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+}
+
+.hero-thank-you {
+	color: var(--black-900);
+	.hero-404__title,
+	.hero-404__descr {
+		color: var(--black-900);
+	}
+
+	&__form {
+		@include flex-column;
+		gap: 20px;
+		align-items: center;
+		max-width: 386px;
+		width: 100%;
+		p {
+			@include text-caption;
+		}
+	}
+
+	&__input {
+		width: 100%;
+		padding: 20px 24px;
+	}
+
+	&__btn {
+		max-width: 100%;
+	}
+}

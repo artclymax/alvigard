@@ -1,0 +1,139 @@
+@use "../tools" as *;
+@use "../components/btn" as *;
+
+.header-menu {
+	display: grid;
+	grid-template-columns: 1fr 236px;
+	align-items: center;
+	gap: adapt(30, 20);
+
+	@include media($tablet) {
+		gap: 20px;
+		align-items: flex-start;
+	}
+
+	&__close-btn {
+		@include reset-btn;
+		@include square(44px);
+		padding: 10px;
+		margin-left: auto;
+		margin-bottom: -20px;
+	}
+
+	&__top {
+	}
+	&__list {
+		grid-row: 2;
+	}
+	&__btn {
+		grid-row: span 2;
+		flex-shrink: 0;
+
+	}
+
+	@include mobile-menu(var(--color-bg-main), ".open-header-menu", ".header-menu__list") {
+		//top: calc(var(--header-height) - 2px);
+		background-image: var(--bg-mobile);
+		background-position: center center; /* x y */
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		top: 0;
+		height: 100dvh;
+		overflow-y: auto;
+		//padding-top: var(--header-height);
+		//backdrop-filter: blur(20px);
+		padding: 10px;
+		gap: 20px;
+
+		.admin-bar & {
+			top: var(--wp-admin--admin-bar--height);
+			height: calc(100dvh - var(--wp-admin--admin-bar--height));
+		}
+	}
+}
+
+.header-menu__list {
+	@include reset-list;
+
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 16px adapt(35, 20, $tablet);
+
+	@include media($tablet) {
+		align-items: flex-start !important;
+	}
+	@include media($mobile-sm) {
+		//align-items: flex-start !important;
+		//text-align: left !important;
+	}
+
+	li {
+		position: relative;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+		display: inline-flex;
+		transition: all 0.3s;
+		font-size: 16px;
+		@include hover-link;
+
+		@include media($tablet) {
+			//&::after {
+			//	//display: none;
+			//}
+		}
+
+		&[aria-current],
+		.current-section {
+			color: var(--color-blue);
+			//&::after {
+			//	right: 0;
+			//	left: 0;
+			//}
+		}
+	}
+
+	//.sub-menu {
+	//	position: absolute;
+	//	z-index: 3;
+	//	padding: 20px;
+	//	background: var(--color-white-07);
+	//	backdrop-filter: blur(20px);
+	//	flex-wrap: nowrap;
+	//	flex-direction: column;
+	//	justify-content: start;
+	//	align-items: start;
+	//	bottom: -12px;
+	//	left: -20px;
+	//	transform: translateY(100%);
+
+	//	opacity: 0;
+	//	visibility: hidden;
+	//	transition: all 0.3s;
+	//	width: 282px;
+
+	//	@include media($tablet) {
+	//		position: static;
+	//		display: none !important;
+	//		text-align: center;
+	//		background: transparent;
+	//		backdrop-filter: none;
+	//		padding: 10px;
+	//		align-items: center;
+	//	}
+
+	//	a {
+	//		@include hover {
+	//			color: var(--color-dark);
+	//			opacity: 0.7;
+	//		}
+	//		&::after {
+	//			display: none;
+	//		}
+	//	}
+	//}
+}

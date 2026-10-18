@@ -1,0 +1,109 @@
+@use "../tools" as *;
+
+.footer {
+	padding-block: 20px;
+
+	&__container {
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__top {
+		display: grid;
+		grid-template-columns: 0.6fr 0.6fr 1fr 1fr;
+		gap: adapt(68, 40, $tablet);
+
+		@include media($tablet) {
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+		}
+
+		& > * {
+			@include media($tablet, min) {
+				padding-bottom: 60px;
+			}
+		}
+		& > *:not(:last-child) {
+			@include media($tablet, min) {
+				border-right: 1px solid var(--color-primary);
+				padding-right: adapt(68, 40, $tablet);
+			}
+		}
+	}
+
+	&__logo {
+	}
+
+	&__nav {
+	}
+
+	&__nav-list {
+		@include reset-list;
+		@include flex-column;
+		gap: 16px;
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			font-size: adapt(18, 16);
+			@include hover-link;
+		}
+	}
+
+	&__contacts {
+		@include media($mobile) {
+			grid-column: 1 / -1;
+			margin-top: 20px;
+		}
+	}
+
+	&__title {
+		margin-bottom: 28px;
+		@include media($mobile) {
+			display: none;
+		}
+	}
+
+	&__address-box {
+		@include flex-column;
+		gap: 20px;
+
+		@include media($mobile) {
+			grid-column: 1 / -1;
+		}
+	}
+
+	&__address {
+	}
+
+	&__time {
+	}
+
+	&__bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		color: var(--color-secondary-text);
+
+		@include media($tablet) {
+			flex-direction: column;
+			@include text-s;
+		}
+	}
+
+	&__link {
+		order: 3;
+		color: inherit;
+		text-decoration: none;
+		@include hover-link;
+		&:first-child {
+			order: 1;
+		}
+	}
+
+	&__copy {
+		order: 2;
+		font-size: inherit;
+	}
+}
